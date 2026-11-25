@@ -1,0 +1,28 @@
+CREATE TABLE roles (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    role VARCHAR(50) NOT NULL,
+    created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    updated_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    CONSTRAINT pk_roles PRIMARY KEY (id),
+    CONSTRAINT uk_roles_role UNIQUE (role)
+);
+
+CREATE TABLE users (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    role_id BIGINT NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    phone_no VARCHAR(15) NOT NULL,
+    dob DATE,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(250) NOT NULL,
+    is_soft_deleted BOOLEAN NOT NULL DEFAULT FALSE,
+    is_banned BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at DATETIME(6) NOT NUll DEFAULT CURRENT_TIMESTAMP(6),
+    updated_at DATETIME(6) NOT NUll DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    CONSTRAINT pk_users PRIMARY KEY (id),
+    CONSTRAINT uk_users_username UNIQUE (username),
+    CONSTRAINT uk_users_email UNIQUE (email),
+    CONSTRAINT uk_users_phone_no UNIQUE (phone_no),
+    CONSTRAINT fk_users_roles FOREIGN KEY (role_id) REFERENCES roles (id)
+);
