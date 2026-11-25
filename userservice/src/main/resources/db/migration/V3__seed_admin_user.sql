@@ -7,13 +7,15 @@ INSERT INTO users (
     username,
     password,
     is_soft_deleted,
-    is_banned,
+    is_banned
 ) VALUES (
     (SELECT id FROM roles WHERE role = 'ROLE_ADMIN'),
     'Platform Admin',
-     mygrocerymart@gmail.com,
-    '+91 123456789',
-     '1999-06-2000',
+     'mygrocerymart@gmail.com',
+    '+91 1234567899',
+     '1999-06-29',
     'platform-admin',
     '$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG',
+          FALSE,
+          FALSE
 );
