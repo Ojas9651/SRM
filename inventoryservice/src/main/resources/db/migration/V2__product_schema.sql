@@ -1,0 +1,21 @@
+CREATE TABLE products(
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    selling_price DECIMAL(10, 2) NOT NULL,
+    purchase_price DECIMAL(10, 2) NOT NULL,
+    mrp BIGINT NOT NULL,
+    rupee_discount DECIMAL(10, 2),
+    percent_discount DECIMAL(10, 2),
+    manufacturer VARCHAR(100),
+    mfg DATE,
+    batch VARCHAR(100),
+    expires_at DATE,
+    is_expired BOOLEAN NOT NULL,
+    stock BIGINT,
+    barcode VARCHAR(100),
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP,
+    CONSTRAINT pk_products PRIMARY KEY(id),
+    CONSTRAINT uk_category_barcode UNIQUE (barcode),
+    CONSTRAINT fk_catrgory_
+)
